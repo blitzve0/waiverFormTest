@@ -87,14 +87,14 @@ var defaultButtonLeftPosition = 50;
 var defaultButtonRightPosition = 50;
 var currentScriptURL = getCurrentScriptURL(/\/ew(\.min)?\.js/) || '';
 var isMinified = /\/ew\.min\.js/.test(currentScriptURL);
-var stylesheetURL = isMinified ? '//cdn.waiverforever.com/qs3/ew.min.css' : '//cdn.waiverforever.com/qs3/ew.css';
+var stylesheetURL = isMinified ? '//raw.githubusercontent.com/blitzve0/waiverFormTest/main/ew.min.css' : '//raw.githubusercontent.com/blitzve0/waiverFormTest/main/ew.css';
 var styleSheetId = 'ewCss';
 function bindDOMEvent(el, name, listener) {
     el.addEventListener(name, listener, false);
     return function () { el.removeEventListener(name, listener, false); };
 }
 function getWindowMode() {
-    return /iphone|ipod|ipad|android|blackberry|mini|windows\sce|palm/i.test(window.navigator.userAgent);
+    return false;
 }
 function getCurrentScriptURL(id) {
     var _a, _b;
