@@ -1,0 +1,185 @@
+body.wf-modal-opened {
+    overflow: hidden;
+    pointer-events: none;
+}
+.wf-embed-waiver-better-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.25); /* Black w/ opacity */
+    z-index:2147483647;
+    pointer-events: none;
+}
+
+.wf-embed-waiver-better-modal iframe{
+    width: 100% !important;
+    height: 88vh !important;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin-bottom: 0;
+}
+
+#wf-embed-waiver-main-container {
+    left: 0;
+    position: fixed;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling:touch;
+    overflow: visible;
+    -webkit-transition:all 1s ease;
+       -moz-transition:all 1s ease;
+        -ms-transition:all 1s ease;
+         -o-transition:all 1s ease;
+            transition:all 1s ease;
+    pointer-events: auto;
+    padding-top: 10vh;
+}
+
+.wf-embed-waiver-better-iframe {
+    border: 2px solid #4173E3;
+    box-sizing: border-box;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.wf-embed-waiver-sign-btn-class {
+    padding:0 34px;
+    position: fixed;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #469BFF;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    bottom: 0;
+    cursor: pointer;
+    line-height: 44px;
+    z-index: 2147483647;
+    display: none;
+}
+
+.wf-embed-waiver-sign-btn-class:hover {
+    background-color: #5587F2;
+    box-shadow: 0px 6px 9px 2px #BFBFBF;
+}
+
+#wf-embed-waiver-title {
+    position: absolute;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    z-index: 2;
+    padding-left: 1em;
+    padding-right: 1em;
+    background: #4173E3;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 52px;
+    max-width: 400px;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    box-sizing: border-box;
+}
+
+#wf-embed-waiver-close-btn {
+    position:absolute;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAgCAYAAADqgqNBAAAABGdBTUEAALGPC/xhBQAAAUBJREFUSA3Nl00SgjAMhRlYeALZeS04ojdwzR30MDou8KU2VQulTRuQzsQUWvO9/tOq2jiN41gz0mTwooH1sI7yXKjpEbeFDYj5gD87jn2AM+mC38MK4JuNz66vkKthT35jvZoAxKMW+2DCdKaByAz05KViAYgXAlPs9/Aic4TNqcsWEAH/DqumABGYJ5eGgCywhoAicIkAjV5jPi3B5EkoqesAsUxK0JQ6MU6wPBL8hHLVJToRAkBos7ijzE/Ze8MEzC9ACM2Bb7g+OFGAGOzOVgbs0v+t2xfA6064BTCNMS21K8xP4vGfDDcihma4C27r6ApIAbNaVQESsKqAHLCKgBJwkQANsCcg7cDRBIsFAL7Wp/PSUm12cWmguxMnt4FwF5Z6BG5h/hzoTVwUbHZRBIuuZp+LYmnLJP8H2B3jL4xU6oEAcMOzAAAAAElFTkSuQmCC");
+    border-radius: 50%;
+    padding: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    right: 5vw;
+    z-index: 2;
+    cursor: pointer;
+    -webkit-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+    -webkit-transition:all 1s ease;
+       -moz-transition:all 1s ease;
+        -ms-transition:all 1s ease;
+         -o-transition:all 1s ease;
+            transition:all 1s ease;
+}
+
+#wf-embed-waiver-ruler {
+    visibility: hidden;
+    white-space: nowrap;
+    font-size: 24px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: fixed;
+}
+
+#wf-embed-waiver-progress {
+    height: 10px;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+#wf-embed-waiver-progress .wf-embed-waiver-progress-bar {
+    height: 100%;
+    -webkit-transition:all 1s ease;
+       -moz-transition:all 1s ease;
+        -ms-transition:all 1s ease;
+         -o-transition:all 1s ease;
+            transition:all 1s ease;
+}
+
+@media only screen and (max-width: 600px)  {
+    #wf-embed-waiver-main-container {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+    }
+
+    #wf-embed-waiver-title {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        width: 100%;
+        text-align: left;
+        max-width: unset;
+        padding-right: 52px;
+    }
+
+    .wf-embed-waiver-better-modal iframe {
+        height: 100% !important;
+    }
+
+    #wf-embed-waiver-close-btn {
+        -webkit-transform: translate(5vw, 0);
+        transform: translate(5vw, 0);
+        height: 52px;
+        width: 52px;
+        padding: 0;
+        background-size: 5vw;
+        box-sizing: border-box;
+    }
+
+    .wf-embed-waiver-sign-btn-class {
+        right: 25px;
+    }
+
+    #wf-embed-waiver-progress {
+        height: 6px;
+        -webkit-transform: translateY(52px);
+        transform: translateY(52px);
+    }
+}
