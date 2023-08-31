@@ -94,7 +94,7 @@ function bindDOMEvent(el, name, listener) {
     return function () { el.removeEventListener(name, listener, false); };
 }
 function getWindowMode() {
-    return false;
+    return /iphone|ipod|ipad|android|blackberry|mini|windows\sce|palm/i.test(window.navigator.userAgent);
 }
 function getCurrentScriptURL(id) {
     var _a, _b;
