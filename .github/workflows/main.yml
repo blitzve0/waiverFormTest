@@ -1,0 +1,50 @@
+name: PR Summary
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  generate_summary:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Extract PR Details
+      id: extract_details
+      run: |
+        # Count changed files
+        FILE_COUNT=$(git diff --name-only HEAD~1 | wc -l)
+
+        # Detect if YAML files were modified
+        YAML_FILES=$(git diff --name-only HEAD~1 | grep -E '\.ya?ml$' || true)
+
+        # Set review time estimate (2 mins if <10 files, otherwise 5 mins)
+        if [ "$FILE_COUNT" -lt 10 ]; then
+          REVIEW_TIME="<2 mins"
+        else
+          REVIEW_TIME="~5 mins"
+        fi
+
+        # Prepare outputs for next step
+        echo "::set-output name=file_count::$FILE_COUNT"
+        echo "::set-output name=yaml_files::$YAML_FILES"
+        echo "::set-output name=review_time::$REVIEW_TIME"
+
+    - name: Post PR Summary Comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          ## Pull Request Summary
+          - **Summary**: Switch to automatic deployments on CircleCI instead of tagging and pushing.
+          - **Impact on Business if Bugs in Code**: Minimal.
+          - **Testing**: Deployments should start when changes are made in the `sandbox` and `main` branches.
+          - **Estimated Review Time**: ${{ steps.extract_details.outputs.review_time }}
+          - **Files Changed**: ${{ steps.extract_details.outputs.file_count }}
+          - **Patient Portal v1 Site**: Detected YAML changes:
+            ```
+            ${{ steps.extract_details.outputs.yaml_files }}
+            ```
+          - **Link to PR**: [View Pull Request](${{ github.event.pull_request.html_url }})
