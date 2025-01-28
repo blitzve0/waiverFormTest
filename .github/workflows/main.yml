@@ -32,8 +32,8 @@ jobs:
         echo "::set-output name=yaml_files::$YAML_FILES"
         echo "::set-output name=review_time::$REVIEW_TIME"
 
-    - name: Post PR Summary Comment
-      uses: peter-evans/create-or-update-comment@v2
+    - name: Create or Update Comment
+      uses: peter-evans/create-or-update-comment@v4.0.0
       with:
         issue-number: ${{ github.event.pull_request.number }}
         body: |
